@@ -1,0 +1,6 @@
+board:
+  name: devebox_f407vg
+  full_name: DevEBox STM32F407VGT6
+  vendor: others
+  socs:
+    - name: stm32f407xx

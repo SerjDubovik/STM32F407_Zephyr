@@ -1,0 +1,33 @@
+/dts-v1/;
+#include <st/f4/stm32f407Xg.dtsi>
+
+/ {
+	model = "DevEBox STM32F407VGT6";
+	compatible = "devebox,stm32f407vg";
+	chosen {
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		zephyr,ccm = &ccm0;
+	};
+};
+
+/* Application peripherals are initialized by the board's STM32Cube drivers. */
+&clk_hse { clock-frequency = <DT_FREQ_M(8)>; status = "okay"; };
+&clk_lse { status = "okay"; };
+
+&pll {
+	clocks = <&clk_hse>;
+	div-m = <4>;
+	mul-n = <168>;
+	div-p = <2>;
+	div-q = <7>;
+	status = "okay";
+};
+
+&rcc {
+	clocks = <&pll>;
+	clock-frequency = <DT_FREQ_M(168)>;
+	ahb-prescaler = <1>;
+	apb1-prescaler = <4>;
+	apb2-prescaler = <2>;
+};

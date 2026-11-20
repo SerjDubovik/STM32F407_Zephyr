@@ -1,0 +1,7 @@
+/.deps/
+/.venv/
+/build/
+/SdCardBrowser/.vs/
+/SdCardBrowser/bin/
+/SdCardBrowser/obj/
+/SdCardBrowser/*.user

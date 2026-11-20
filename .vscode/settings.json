@@ -1,0 +1,13 @@
+{
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/build/compile_commands.json",
+  "cmake.configureOnOpen": false,
+  "files.watcherExclude": {
+    "**/.deps/**": true,
+    "**/.venv/**": true
+  },
+  "search.exclude": {
+    ".deps": true,
+    ".venv": true,
+    "build": true
+  }
+}

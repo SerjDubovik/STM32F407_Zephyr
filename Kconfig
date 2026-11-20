@@ -1,0 +1,21 @@
+mainmenu "DevEBox STM32F407VG"
+source "Kconfig.zephyr"
+
+config DEVEBOX_PERIPHERALS
+	bool
+	default y
+	select USE_STM32_HAL_CORTEX
+	select USE_STM32_HAL_DMA
+	select USE_STM32_HAL_GPIO
+	select USE_STM32_HAL_PCD
+	select USE_STM32_HAL_PCD_EX
+	select USE_STM32_HAL_PWR
+	select USE_STM32_HAL_RTC
+	select USE_STM32_HAL_RTC_EX
+	select USE_STM32_HAL_SD
+	select USE_STM32_HAL_SPI
+	select USE_STM32_HAL_SRAM
+	select USE_STM32_HAL_UART
+	select USE_STM32_LL_FSMC
+	select USE_STM32_LL_SDMMC
+	select USE_STM32_LL_USB

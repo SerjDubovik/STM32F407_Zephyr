@@ -1,0 +1,74 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Zephyr Build",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/build.ps1",
+        "-Action",
+        "Build"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Zephyr Flash (DAPLink)",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/build.ps1",
+        "-Action",
+        "Flash"
+      ],
+      "problemMatcher": [
+        "$gcc"
+      ]
+    },
+    {
+      "label": "Zephyr Setup",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/tools/build.ps1",
+        "-Action",
+        "Setup"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "SdCardBrowser Build",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["build", "${workspaceFolder}/SdCardBrowser/SdCardBrowser.csproj", "-c", "Release"],
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "SdCardBrowser Run",
+      "type": "process",
+      "command": "dotnet",
+      "args": ["run", "--no-build", "-c", "Release", "--project", "${workspaceFolder}/SdCardBrowser/SdCardBrowser.csproj"],
+      "dependsOn": "SdCardBrowser Build",
+      "problemMatcher": []
+    }
+  ]
+}
